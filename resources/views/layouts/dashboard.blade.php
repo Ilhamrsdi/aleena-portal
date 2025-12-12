@@ -6,14 +6,14 @@
     <title>{{ $title ?? 'Dashboard - Aleena' }}</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
     <style>
         body {
             background: #f4f5f7;
             font-family: Arial, sans-serif;
         }
 
-        /* Sidebar */
+        /* ================= SIDEBAR ================= */
         .sidebar {
             width: 250px;
             height: 100vh;
@@ -23,6 +23,8 @@
             background: #1e1e1e;
             color: #fff;
             padding-top: 20px;
+            z-index: 99999; /* paling atas */
+            transition: left .3s ease-in-out;
         }
 
         .sidebar .brand {
@@ -37,7 +39,6 @@
             padding: 12px 20px;
             text-decoration: none;
             color: #ccc;
-            font-size: 1rem;
             transition: .3s;
         }
 
@@ -47,61 +48,72 @@
             color: #000;
         }
 
-        /* Content */
+        /* ================= OVERLAY ================= */
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 99998;
+        }
+
+        /* ================= CONTENT ================= */
         .content-area {
             margin-left: 250px;
             padding: 25px;
         }
 
-        /* Topbar */
         .topbar {
             background: #fff;
             padding: 15px 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            border-radius: 8px;
+            position: relative;
+            z-index: 2;
         }
 
-        .username {
-            font-weight: 600;
+        /* ================= TOGGLE BUTTON ================= */
+        .toggle-btn {
+            font-size: 1.8rem;
+            cursor: pointer;
+            display: none;
+            z-index: 100000; /* TERTINGGI */
+            position: relative;
         }
 
-        /* Responsive */
-        @media (max-width: 992px) {
-            .sidebar {
-                width: 200px;
-            }
-            .content-area {
-                margin-left: 200px;
-            }
-        }
-
+        /* ============= RESPONSIVE ============= */
         @media (max-width: 768px) {
+
             .sidebar {
-                left: -250px;
-                transition: .3s;
+                left: -260px;
             }
+
             .sidebar.show {
                 left: 0;
             }
-            .content-area {
-                margin-left: 0;
-            }
-            .toggle-btn {
+
+            .sidebar-overlay.show {
                 display: block;
-                cursor: pointer;
+            }
+
+            .toggle-btn {
+                display: block !important;
+            }
+
+            .content-area {
+                margin-left: 0 !important;
+                padding: 20px;
             }
         }
-
-        .toggle-btn {
-            display: none;
-            font-size: 1.5rem;
-        }
-
     </style>
 </head>
+
 <body>
 
     <!-- SIDEBAR -->
@@ -112,38 +124,41 @@
             <a href="{{ route('dashboard') }}" class="{{ request()->is('dashboard') ? 'active' : '' }}">Dashboard</a>
             <a href="{{ route('admin.berita.index') }}" class="{{ request()->is('admin/berita*') ? 'active' : '' }}">Berita</a>
             <a href="{{ route('admin.team.index') }}" class="{{ request()->is('admin/team*') ? 'active' : '' }}">Tim Kami</a>
-            {{-- <a href="{{ route('admin.portofolio') }}">Portofolio & Pencapaian</a>
-            <a href="{{ route('admin.pengaturan') }}">Pengaturan</a> --}}
+            <a href="{{ route('admin.portofolio.index') }}" class="{{ request()->is('admin/portofolio*') ? 'active' : '' }}">Portofolio</a>
         </div>
     </div>
 
-    <!-- CONTENT AREA -->
+    <!-- OVERLAY -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+    <!-- CONTENT -->
     <div class="content-area">
 
         <!-- TOPBAR -->
         <div class="topbar mb-4">
+
+            <!-- tombol pasti muncul -->
             <span class="toggle-btn" onclick="toggleSidebar()">☰</span>
 
-            <h4 class="m-0">{{ $title ?? 'Dashboard' }}</h4>
+            <h4>{{ $title ?? 'Dashboard' }}</h4>
 
             <div class="d-flex align-items-center gap-3">
-                <span class="username">Hi, {{ Auth::user()->name }}</span>
-
+                <span>Hi, {{ Auth::user()->name }}</span>
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <button class="btn btn-danger btn-sm">Logout</button>
                 </form>
             </div>
+
         </div>
 
-        <!-- HALAMAN DINAMIS -->
         @yield('content')
-
     </div>
 
     <script>
         function toggleSidebar() {
             document.getElementById("sidebarMenu").classList.toggle("show");
+            document.getElementById("sidebarOverlay").classList.toggle("show");
         }
     </script>
 

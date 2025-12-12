@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\PortofolioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,7 +53,20 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     'show'    => 'admin.team.show'
 ]);
 
+    // CRUD Portofolio & Pencapaian (Admin)
+    Route::resource('/portofolio', PortofolioController::class)->parameters([
+    'portofolio' => 'portofolio'
+])->names([
 
+    'index'   => 'admin.portofolio.index',
+    'create'  => 'admin.portofolio.create',
+    'store'   => 'admin.portofolio.store',
+    'edit'    => 'admin.portofolio.edit',
+    'update'  => 'admin.portofolio.update',
+    'destroy' => 'admin.portofolio.destroy',
+    'show'    => 'admin.portofolio.show'
+ 
+]);
 
 
 });

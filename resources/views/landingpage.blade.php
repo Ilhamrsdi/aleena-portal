@@ -723,22 +723,23 @@
             <div class="row">
                 
                 <div class="col-lg-5 col-md-12 mb-4">
-                    <div class="row g-3 h-100">
-                        
-                        <div class="col-6">
-                            <div class="side-by-side-card">
-                                <p class="text-white-50 small"></p>
-                            </div>
-                        </div>
+    <div class="row g-3 h-100">
+        
+        <div class="col-6">
+            <div class="side-by-side-card p-2">
+                <img src="assets/img/layanan1.jpg" class="img-fluid rounded" alt="Gambar 1">
+            </div>
+        </div>
 
-                        <div class="col-6">
-                            <div class="side-by-side-card">
-                                <p class="text-white-50 small"></p>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
+        <div class="col-6">
+            <div class="side-by-side-card p-2">
+                <img src="assets/img/layanan2.jpg" class="img-fluid rounded" alt="Gambar 2">
+            </div>
+        </div>
+
+    </div>
+</div>
+
 
                 <div class="col-lg-7 col-md-12">
                     <div class="content-card">

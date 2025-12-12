@@ -12,7 +12,7 @@
 
 
         <div class="detail-body">
-            {!! nl2br(e($berita->konten)) !!}
+            {!! nl2br(e($berita->isi)) !!}
         </div>
 
     </div>
