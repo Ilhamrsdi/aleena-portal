@@ -61,6 +61,7 @@
 # General Styling & Shared Classes
 --------------------------------------------------------------*/
 body {
+  cursor: auto;
   color: var(--default-color);
   background-color: var(--background-color);
   font-family: var(--default-font);
@@ -3037,6 +3038,55 @@ section,
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
+#sidebarAleena {
+    position: fixed;
+    top: 0;
+    left: -320px;
+    width: 300px;
+    height: 100vh;
+    background: #111;
+    color: #fff;
+    padding: 25px;
+    z-index: 9999;
+    transition: 0.3s ease;
+    box-shadow: 2px 0 15px rgba(0,0,0,0.5);
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar-header h2 {
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+.sidebar-sub {
+    color: #00ff73;
+    margin-bottom: 15px;
+}
+
+.sidebar-content h4 {
+    border-bottom: 2px solid #BFF747;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.sidebar-content p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+#sidebarOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: none;
+    z-index: 9998;
 }

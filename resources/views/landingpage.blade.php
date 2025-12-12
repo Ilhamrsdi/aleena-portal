@@ -9,11 +9,12 @@
   <meta name="keywords" content="">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/favicon-aleena.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
@@ -26,45 +27,126 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Nexa
-  * Template URL: https://bootstrapmade.com/nexa-bootstrap-agency-template/
-  * Updated: Aug 19 2025 with Bootstrap v5.3.7
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body class="index-page">
-
+ <div id="cursor-follower" class="cursor-follower"></div>
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container position-relative d-flex align-items-center justify-content-between">
-
       <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
         <img src="assets/img/logo 1.png" alt=""> 
-            {{-- <h1 class="sitename">Nexa</h1> --}}
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#hero" class="active">Beranda</a></li>
+          <li><a href="#beranda" class="active">Beranda</a></li>
           <li><a href="#about">Tentang Kami</a></li>
-          <li><a href="#services">Layanan Kami</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Berita</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#layanan-kami">Layanan Kami</a></li>
+          <li><a href="#portofolio">Portfolio</a></li>
+          <li><a href="#news">Berita</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
       <div class="header-social-links">
-        <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
-        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          <a href="#" id="openSidebar">
+              <i class="bi bi-list" style="font-size: 28px; cursor:pointer;"></i>
+          </a>
       </div>
+    <div id="sidebarAleena">
+    <div class="sidebar-header">
+        <h2>Aleéna</h2>
+        <i class="bi bi-x-lg" id="closeSidebar"></i>
+    </div>
+
+    <p class="sidebar-sub">IT Consultant & Digital Marketing</p>
+
+    <div class="sidebar-content">
+        <h4>Kontak Kami</h4>
+
+        <p><i class="bi bi-telephone"></i> 087753172270</p>
+
+        <p><i class="bi bi-geo-alt"></i>
+            Perumahan Bernardy Land Slawu  <br>
+            Cluster Alstonia Blok AC 157 ' <br>
+            Patrang, Slawe, Patrang, Kalipare <br>
+            Jember, Jawa Timur 68118
+        </p>
+    </div>
+</div>
+
+<div id="sidebarOverlay"></div>
+<style>
+  /* SIDEBAR WRAPPER */
+#sidebarAleena {
+    position: fixed;
+    top: 0;
+    left: -320px; /* awal tersembunyi */
+    width: 300px;
+    height: 100vh;
+    background: #111;
+    color: #fff;
+    padding: 25px;
+    z-index: 9999;
+    transition: 0.3s ease;
+    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.5);
+}
+
+/* HEADER SIDEBAR */
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar-header h2 {
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+#closeSidebar {
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* SUBTITLE */
+.sidebar-sub {
+    font-size: 0.9rem;
+    color: #00ff73;
+    margin: 5px 0 20px;
+}
+
+/* KONTEN */
+.sidebar-content h4 {
+    margin-bottom: 15px;
+    border-bottom: 2px solid #BFF747;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.sidebar-content p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.sidebar-content i {
+    margin-right: 8px;
+    color: #00c3ff;
+}
+
+/* OVERLAY GELAP */
+#sidebarOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: none;
+    z-index: 9998;
+}
+
+</style>
 
     </div>
   </header>
@@ -72,7 +154,7 @@
   <main class="main">
 
     <!-- Hero Section -->
-    <section id="hero" class="hero section">
+    <section id="beranda" class="hero section">
       <div class="hero-background">
         <div class="hero-overlay"></div>
       </div>
@@ -83,23 +165,15 @@
             <div class="hero-content" data-aos="fade-up" data-aos-delay="200">
               <h1>ALEENA</h1><br><br>
               <p>IT CONSULTANT & DIGITAL MARKETING</p>
-
-              <div class="hero-btns" data-aos="fade-up" data-aos-delay="300">
-                {{-- <a href="#about" class="btn btn-primary">Start Your Journey</a>
-                <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="btn btn-outline glightbox">
-                  <i class="bi bi-play-circle"></i>
-                  Watch Demo
-                </a> --}}
-              </div>
             </div>
           </div>
         </div>
        <div class="row-just-content-absolute">
-   <div class="col-lg-8">
+        <div class="col-lg-8">
 
-   <div class="col-lg-8">
+        <div class="col-lg-8">
 
-    <style>
+          <style>
        
         .watermark-logo {
             position: absolute;
@@ -119,50 +193,50 @@
             position: relative;
             z-index: 5;
         }
-    </style>
+        
+         </style>
 
-    <!-- Watermark logo -->
-    <div class="watermark-logo">
+   
+        <div class="watermark-logo">
         <img src="assets/img/logo 1.png" alt="Business Innovation">
-    </div>
+        </div>
 
-    <div class="hero-image-container" data-aos="zoom-in" data-aos-delay="400">
-    </div>
+         <div class="hero-image-container" data-aos="zoom-in" data-aos-delay="400">
+         </div>
 
-</div>
+            </div>
 
 
-</div>
+        </div>
 
-</div>
-<div class="container my-4">
+        </div>
+        <div class="container my-4">
 
-  <style>
-    /* Wrapper utama hijau + rounded */
-    .hero-green {
+        <style>
+   
+        .hero-green {
         position: relative;
         border-radius: 25px;
         overflow: hidden;
-    }
+            }
 
-    /* Background Image */
-    .hero-green .bg-img {
-        background-image: url('assets/img/Rectangle 20.png'); /* ganti dengan gambar kamu */
+        .hero-green .bg-img {
+        background-image: url('assets/img/Rectangle 20.png'); 
         background-size: cover;
         background-position: center;
         width: 100%;
-        height: 320px; /* sesuaikan */
-    }
+        height: 320px; 
+        }
 
-    /* Overlay hijau tua */
-    .hero-green .overlay {
+ 
+        .hero-green .overlay {
         position: absolute;
         inset: 0;
         background: rgba(44, 89, 0, 0.60); /* hijau + transparan */
-    }
+        }
 
-    /* Card hitam kanan */
-    .content-box {
+   
+        .content-box {
         position: absolute;
         top: 0;
         right: 0;
@@ -174,36 +248,36 @@
         color: white;
         border-bottom-left-radius: 20px;
         z-index: 5;
-    }
+        }
 
-    /* Tombol style */
-  .btn-custom {
-    background: #ffffff00;  
-    color: #ffffff !important;  /* <-- warna teks putih */
-    font-size: 14px;
-    padding: 6px 12px;
-    border-radius: 6px;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    border: 1px solid #fff;   /* biar tombolnya tetap terlihat */
-}
+   
+        .btn-custom {
+        background: #ffffff00;  
+        color: #ffffff !important; 
+        font-size: 14px;
+        padding: 6px 12px;
+        border-radius: 6px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border: 1px solid #fff;  
+        }
 
 
-    .btn-custom .icon-circle {
+        .btn-custom .icon-circle {
         width: 20px;
         height: 20px;
-        background: #66bb33; /* warna icon hijau */
+        background: #66bb33; 
         border-radius: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
         color: #fff;
         font-size: 12px;
-    }
+        }
 
-    /* Responsive */
-    @media (max-width: 768px) {
+ 
+        @media (max-width: 768px) {
         .content-box {
             position: relative;
             width: 100%;
@@ -212,16 +286,12 @@
         .hero-green .bg-img {
             height: 250px;
         }
-    }
-  </style>
+        }
+        </style>
 
-  <div class="hero-green">
-
-      <!-- Background -->
+        <div class="hero-green">
       <div class="bg-img"></div>
-      <div class="overlay"></div>
-
-      <!-- Content box (teks) -->
+    
       <div class="content-box">
           <p class="mb-3">
               Aleena Mandiri Group hadir sebagai mitra konsultan IT<br>
@@ -235,779 +305,203 @@
               <span class="icon-circle">✔</span>
           </a>
       </div>
-
-  </div>
-
+<br>
+       <div class="green-marquee-full">
+    <div class="marquee-inner-full">
+        <span>Development Software ✦ UI/UX Design ✦ IT Consultant ✦ Digital Marketing ✦</span>
+        <span>Development Software ✦ UI/UX Design ✦ IT Consultant ✦ Digital Marketing ✦</span>
+    </div>
 </div>
 
-        {{-- <div class="row justify-content-center">
-          <div class="col-lg-8">
-            <div class="hero-image-container" data-aos="zoom-in" data-aos-delay="400">
-              <div class="hero-image">
-                <img src="assets/img/Rectangle 20.png" alt="Business Innovation" class="img-fluid">
-            <div class="image-decoration"></div>
-              </div>
-            </div>
-          </div>
-        </div> --}}
+<style>
+    
+.green-marquee-full {
+    width: 100%;
+    background: #a8db34;
+    overflow: hidden;
+    position: relative;
+    padding: 12px 0;
+    margin: 0;
+}
 
-        <div class="row justify-content-center">
-          <div class="col-lg-10">
-            <div class="hero-stats" data-aos="fade-up" data-aos-delay="500">
-              <div class="stat-item">
-                <div class="stat-icon">
-                  <i class="bi bi-trophy"></i>
-                </div>
-                <h3><span data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1" class="purecounter"></span>+</h3>
-                <p>Awards Won</p>
-              </div>
-              <div class="stat-item">
-                <div class="stat-icon">
-                  <i class="bi bi-people"></i>
-                </div>
-                <h3><span data-purecounter-start="0" data-purecounter-end="850" data-purecounter-duration="1" class="purecounter"></span>+</h3>
-                <p>Happy Clients</p>
-              </div>
-              <div class="stat-item">
-                <div class="stat-icon">
-                  <i class="bi bi-lightning"></i>
-                </div>
-                <h3><span data-purecounter-start="0" data-purecounter-end="95" data-purecounter-duration="1" class="purecounter"></span>%</h3>
-                <p>Project Success</p>
-              </div>
-              <div class="stat-item">
-                <div class="stat-icon">
-                  <i class="bi bi-globe"></i>
-                </div>
-                <h3><span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1" class="purecounter"></span>+</h3>
-                <p>Countries Served</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section><!-- /Hero Section -->
+.marquee-inner-full {
+    display: flex;
+    white-space: nowrap;
+    width: max-content;
+    animation: marqueeFull 15s linear infinite;
+}
 
-    <!-- About Section -->
+.marquee-inner-full span {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a1a1a;
+    padding-right: 60px;
+}
+
+@keyframes marqueeFull {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+</style>
+
+
+       
+    </section>
+
+
     <section id="about" class="about section">
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <span class="description-title">About</span>
-        <h2>About</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
+      <style>
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+.about-logo {
+    width: 120px;
+    opacity: 0.9;
+}
 
-        <div class="row gx-0 gx-lg-5 gy-5 align-items-center">
-          <div class="col-lg-6" data-aos="zoom-out" data-aos-delay="200">
-            <div class="image-wrapper">
-              <div class="image-box">
-                <img src="assets/img/about/about-square-15.webp" class="img-fluid" alt="About Image" loading="lazy">
-              </div>
-              <div class="experience-box" data-aos="zoom-in" data-aos-delay="300">
-                <div class="years">15+</div>
-                <div class="text">Years of<br>Experience</div>
-              </div>
-            </div>
-          </div>
+.about.section {
+    margin-top: -60px !important;
+}
 
-          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
-            <div class="content">
-              <div class="section-header">
-                <h2>Empowering Businesses Through Innovative Solutions</h2>
-              </div>
 
-              <p class="highlight-text">Agile methodologies drive our collaborative approach, ensuring optimal outcomes across diverse industry verticals.</p>
+#about .container {
+    margin-top: 30px !important; 
+}
 
-              <div class="features-list">
-                <div class="feature-item" data-aos="zoom-in" data-aos-delay="300">
-                  <div class="icon-box">
-                    <i class="bi bi-check2-circle"></i>
-                  </div>
-                  <div class="text">
-                    <h4>Expert Consulting</h4>
-                    <p>In today's dynamic market landscape, strategic implementation of emerging technologies drives competitive advantage and sustainable growth trajectories.</p>
-                  </div>
-                </div>
 
-                <div class="feature-item" data-aos="zoom-in" data-aos-delay="400">
-                  <div class="icon-box">
-                    <i class="bi bi-lightbulb"></i>
-                  </div>
-                  <div class="text">
-                    <h4>Innovative Solutions</h4>
-                    <p>Leveraging cutting-edge frameworks and methodologies to deliver scalable solutions that address complex business challenges effectively.</p>
-                  </div>
-                </div>
 
-                <div class="feature-item" data-aos="zoom-in" data-aos-delay="500">
-                  <div class="icon-box">
-                    <i class="bi bi-graph-up-arrow"></i>
-                  </div>
-                  <div class="text">
-                    <h4>Growth Strategy</h4>
-                    <p>Our comprehensive approach to digital transformation enables organizations to achieve sustainable competitive advantages in their respective markets.</p>
-                  </div>
-                </div>
-              </div>
+.text-justify-aleena {
+    text-align: justify;
+    text-justify: inter-word;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #fff;
+}
 
-              <div class="cta-buttons">
-                <a href="#" class="btn-learn-more">Learn More</a>
-                <a href="#" class="btn-get-started">Get Started</a>
-              </div>
-            </div>
-          </div>
+
+.btn-aleena {
+    background: #ffffff00;
+    border: 1px solid #fff;
+    color: #fff !important;
+    padding: 6px 14px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.btn-aleena .icon-circle {
+    width: 22px;
+    height: 22px;
+    background: #9ad94a;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    font-weight: bold;
+}
+
+
+.director-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 20px;
+}
+
+.director-circle {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border-radius: 50%;
+}
+
+.director-info {
+    font-size: 12px;
+    color: #ccc;
+    line-height: 1.2;
+}
+</style>
+
+<div class="container my-5">
+
+    <div class="row align-items-center text-white">
+        
+      
+        <div class="col-lg-2 text-center text-lg-start">
+            <img src="assets/img/logo 1.png" class="about-logo">
         </div>
 
-      </div>
+       
+        <div class="col-lg-10">
 
-    </section><!-- /About Section -->
+            <h4 class="mb-2">Tentang Aleena</h4>
 
-    <!-- Services Section -->
-    <section id="services" class="services section">
+            <p class="text-justify-aleena">
+                Aleena adalah mitra teknologi dan digital marketing yang menghadirkan solusi inovatif,
+                handal, dan berkelanjutan untuk mendukung transformasi digital serta pertumbuhan bisnis
+                perusahaan di Indonesia melalui strategi, kreativitas, dan desain yang bernilai.
+            </p>
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <span class="description-title">Services</span>
-        <h2>Services</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
+          
+            <div class="d-flex align-items-center mt-3">
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <a href="#" class="btn-aleena">
+                    Pelajari Lebih Lanjut
+                    <span class="icon-circle">➜</span>
+                </a>
 
-        <div class="services-container">
-          <div class="row g-4">
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-              <div class="service-item">
-                <div class="service-icon">
-                  <i class="bi bi-code-slash"></i>
+                <div class="director-box">
+                    <div class="director-circle"></div>
+                    <div class="director-info">
+                        Victor Wahanggara, M.Kom <br>
+                        Direktur
+                    </div>
                 </div>
-                <div class="service-content">
-                  <span class="service-number">01</span>
-                  <h3 class="service-title">Custom Application Development</h3>
-                  <p class="service-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum tortor sem, in semper nisl bibendum eu. Duis pellentesque.</p>
-                  <a href="#" class="service-link">
-                    Learn More
-                    <i class="bi bi-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
+
             </div>
-
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-              <div class="service-item">
-                <div class="service-icon">
-                  <i class="bi bi-bar-chart"></i>
-                </div>
-                <div class="service-content">
-                  <span class="service-number">02</span>
-                  <h3 class="service-title">Strategic Business Planning</h3>
-                  <p class="service-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum tortor sem, in semper nisl bibendum eu. Duis pellentesque.</p>
-                  <a href="#" class="service-link">
-                    Learn More
-                    <i class="bi bi-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-              <div class="service-item">
-                <div class="service-icon">
-                  <i class="bi bi-palette"></i>
-                </div>
-                <div class="service-content">
-                  <span class="service-number">03</span>
-                  <h3 class="service-title">Brand &amp; Identity Design</h3>
-                  <p class="service-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum tortor sem, in semper nisl bibendum eu. Duis pellentesque.</p>
-                  <a href="#" class="service-link">
-                    Learn More
-                    <i class="bi bi-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-              <div class="service-item">
-                <div class="service-icon">
-                  <i class="bi bi-megaphone"></i>
-                </div>
-                <div class="service-content">
-                  <span class="service-number">04</span>
-                  <h3 class="service-title">Digital Marketing &amp; SEO</h3>
-                  <p class="service-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum tortor sem, in semper nisl bibendum eu. Duis pellentesque.</p>
-                  <a href="#" class="service-link">
-                    Learn More
-                    <i class="bi bi-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="cta-wrapper mt-5 text-center" data-aos="fade-up" data-aos-delay="100">
-          <div class="row">
-            <div class="col-lg-8 offset-lg-2">
-              <div class="cta-box">
-                <div class="row align-items-center">
-                  <div class="col-lg-4">
-                    <div class="cta-image" data-aos="zoom-in" data-aos-delay="200">
-                      <img src="assets/img/services/services-8.webp" alt="Services" class="img-fluid rounded-circle">
-                    </div>
-                  </div>
-                  <div class="col-lg-8">
-                    <div class="cta-content text-lg-start" data-aos="fade-left" data-aos-delay="300">
-                      <h3>Need a Custom Solution?</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.</p>
-                      <a href="#" class="primary-btn">Schedule a Consultation</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </section><!-- /Services Section -->
-
-    <!-- Steps Section -->
-    <section id="steps" class="steps section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <span class="description-title">Steps</span>
-        <h2>Steps</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="steps-5">
-          <div class="process-container">
-
-            <div class="process-item" data-aos="fade-up" data-aos-delay="200">
-              <div class="content">
-                <span class="step-number">01</span>
-                <div class="card-body">
-                  <div class="step-icon">
-                    <i class="bi bi-pencil-square"></i>
-                  </div>
-                  <div class="step-content">
-                    <h3>Project Planning</h3>
-                    <p>Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End Process Item -->
-
-            <div class="process-item" data-aos="fade-up" data-aos-delay="300">
-              <div class="content">
-                <span class="step-number">02</span>
-                <div class="card-body">
-                  <div class="step-icon">
-                    <i class="bi bi-gear"></i>
-                  </div>
-                  <div class="step-content">
-                    <h3>Development Phase</h3>
-                    <p>Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus.</p>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End Process Item -->
-
-            <div class="process-item" data-aos="fade-up" data-aos-delay="400">
-              <div class="content">
-                <span class="step-number">03</span>
-                <div class="card-body">
-                  <div class="step-icon">
-                    <i class="bi bi-search"></i>
-                  </div>
-                  <div class="step-content">
-                    <h3>Testing &amp; QA</h3>
-                    <p>Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero.</p>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End Process Item -->
-
-            <div class="process-item" data-aos="fade-up" data-aos-delay="500">
-              <div class="content">
-                <span class="step-number">04</span>
-                <div class="card-body">
-                  <div class="step-icon">
-                    <i class="bi bi-rocket-takeoff"></i>
-                  </div>
-                  <div class="step-content">
-                    <h3>Launch &amp; Support</h3>
-                    <p>Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt.</p>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End Process Item -->
-
-          </div>
-        </div>
-
-      </div>
-
-    </section><!-- /Steps Section -->
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials section light-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <span class="description-title">Testimonials</span>
-        <h2>Testimonials</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="testimonials-slider swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 800,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": 1,
-              "spaceBetween": 30,
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "768": {
-                  "slidesPerView": 2
-                },
-                "1200": {
-                  "slidesPerView": 3
-                }
-              }
-            }
-          </script>
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="testimonial-card">
-                <div class="testimonial-content">
-                  <p>
-                    <i class="bi bi-quote quote-icon"></i>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo to maecenas aliquam
-                  </p>
-                </div>
-                <div class="testimonial-profile">
-                  <div class="rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                  </div>
-                  <div class="profile-info">
-                    <img src="assets/img/person/person-m-8.webp" alt="Profile Image">
-                    <div>
-                      <h3>Robert Johnson</h3>
-                      <h4>Marketing Director</h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-card">
-                <div class="testimonial-content">
-                  <p>
-                    <i class="bi bi-quote quote-icon"></i>
-                    Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh.
-                  </p>
-                </div>
-                <div class="testimonial-profile">
-                  <div class="rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                  </div>
-                  <div class="profile-info">
-                    <img src="assets/img/person/person-f-3.webp" alt="Profile Image">
-                    <div>
-                      <h3>Lisa Williams</h3>
-                      <h4>Product Manager</h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-card">
-                <div class="testimonial-content">
-                  <p>
-                    <i class="bi bi-quote quote-icon"></i>
-                    Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram.
-                  </p>
-                </div>
-                <div class="testimonial-profile">
-                  <div class="rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                  </div>
-                  <div class="profile-info">
-                    <img src="assets/img/person/person-f-10.webp" alt="Profile Image">
-                    <div>
-                      <h3>Emma Parker</h3>
-                      <h4>UX Designer</h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-card">
-                <div class="testimonial-content">
-                  <p>
-                    <i class="bi bi-quote quote-icon"></i>
-                    Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit.
-                  </p>
-                </div>
-                <div class="testimonial-profile">
-                  <div class="rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                  </div>
-                  <div class="profile-info">
-                    <img src="assets/img/person/person-m-5.webp" alt="Profile Image">
-                    <div>
-                      <h3>David Miller</h3>
-                      <h4>Senior Developer</h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-card">
-                <div class="testimonial-content">
-                  <p>
-                    <i class="bi bi-quote quote-icon"></i>
-                    Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat.
-                  </p>
-                </div>
-                <div class="testimonial-profile">
-                  <div class="rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                  </div>
-                  <div class="profile-info">
-                    <img src="assets/img/person/person-m-2.webp" alt="Profile Image">
-                    <div>
-                      <h3>Michael Davis</h3>
-                      <h4>CEO &amp; Founder</h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-card">
-                <div class="testimonial-content">
-                  <p>
-                    <i class="bi bi-quote quote-icon"></i>
-                    Eius ipsam praesentium dolor quaerat inventore rerum odio. Quos laudantium adipisci eius. Accusamus qui iste cupiditate sed temporibus est aspernatur.
-                  </p>
-                </div>
-                <div class="testimonial-profile">
-                  <div class="rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                  </div>
-                  <div class="profile-info">
-                    <img src="assets/img/person/person-f-7.webp" alt="Profile Image">
-                    <div>
-                      <h3>Sarah Thompson</h3>
-                      <h4>Art Director</h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-
-    </section><!-- /Testimonials Section -->
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <span class="description-title">Portfolio</span>
-        <h2>Portfolio</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="isotope-layout" data-default-filter="*" data-layout="fitRows" data-sort="original-order">
-
-          <div class="portfolio-filters-wrapper" data-aos="fade-up" data-aos-delay="100">
-            <ul class="portfolio-filters isotope-filters">
-              <li data-filter="*" class="filter-active">All Projects</li>
-              <li data-filter=".filter-branding">Branding</li>
-              <li data-filter=".filter-web">Web Design</li>
-              <li data-filter=".filter-print">Print Design</li>
-              <li data-filter=".filter-motion">Motion</li>
-            </ul>
-          </div>
-
-          <div class="row gy-4 portfolio-grid isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <div class="portfolio-card">
-                <div class="image-container">
-                  <img src="assets/img/portfolio/portfolio-3.webp" class="img-fluid" alt="Brand Identity" loading="lazy">
-                  <div class="overlay">
-                    <div class="overlay-content">
-                      <a href="assets/img/portfolio/portfolio-3.webp" class="glightbox zoom-link" title="Brand Identity Project">
-                        <i class="bi bi-zoom-in"></i>
-                      </a>
-                      <a href="portfolio-details.html" class="details-link" title="View Project Details">
-                        <i class="bi bi-arrow-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="content">
-                  <h3>Brand Identity</h3>
-                  <p>Corporate branding and visual identity system</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
-              <div class="portfolio-card">
-                <div class="image-container">
-                  <img src="assets/img/portfolio/portfolio-7.webp" class="img-fluid" alt="E-commerce Platform" loading="lazy">
-                  <div class="overlay">
-                    <div class="overlay-content">
-                      <a href="assets/img/portfolio/portfolio-7.webp" class="glightbox zoom-link" title="E-commerce Platform">
-                        <i class="bi bi-zoom-in"></i>
-                      </a>
-                      <a href="portfolio-details.html" class="details-link" title="View Project Details">
-                        <i class="bi bi-arrow-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="content">
-                  <h3>E-commerce Platform</h3>
-                  <p>Modern online shopping experience</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-print">
-              <div class="portfolio-card">
-                <div class="image-container">
-                  <img src="assets/img/portfolio/portfolio-portrait-5.webp" class="img-fluid" alt="Magazine Design" loading="lazy">
-                  <div class="overlay">
-                    <div class="overlay-content">
-                      <a href="assets/img/portfolio/portfolio-portrait-5.webp" class="glightbox zoom-link" title="Magazine Design">
-                        <i class="bi bi-zoom-in"></i>
-                      </a>
-                      <a href="portfolio-details.html" class="details-link" title="View Project Details">
-                        <i class="bi bi-arrow-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="content">
-                  <h3>Magazine Design</h3>
-                  <p>Editorial layout and typography</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-motion">
-              <div class="portfolio-card">
-                <div class="image-container">
-                  <img src="assets/img/portfolio/portfolio-8.webp" class="img-fluid" alt="Motion Graphics" loading="lazy">
-                  <div class="overlay">
-                    <div class="overlay-content">
-                      <a href="assets/img/portfolio/portfolio-8.webp" class="glightbox zoom-link" title="Motion Graphics">
-                        <i class="bi bi-zoom-in"></i>
-                      </a>
-                      <a href="portfolio-details.html" class="details-link" title="View Project Details">
-                        <i class="bi bi-arrow-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="content">
-                  <h3>Motion Graphics</h3>
-                  <p>Animated visual storytelling</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <div class="portfolio-card">
-                <div class="image-container">
-                  <img src="assets/img/portfolio/portfolio-9.webp" class="img-fluid" alt="Logo Collection" loading="lazy">
-                  <div class="overlay">
-                    <div class="overlay-content">
-                      <a href="assets/img/portfolio/portfolio-9.webp" class="glightbox zoom-link" title="Logo Collection">
-                        <i class="bi bi-zoom-in"></i>
-                      </a>
-                      <a href="portfolio-details.html" class="details-link" title="View Project Details">
-                        <i class="bi bi-arrow-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="content">
-                  <h3>Logo Collection</h3>
-                  <p>Diverse brand mark explorations</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
-              <div class="portfolio-card">
-                <div class="image-container">
-                  <img src="assets/img/portfolio/portfolio-portrait-8.webp" class="img-fluid" alt="Mobile App Design" loading="lazy">
-                  <div class="overlay">
-                    <div class="overlay-content">
-                      <a href="assets/img/portfolio/portfolio-portrait-8.webp" class="glightbox zoom-link" title="Mobile App Design">
-                        <i class="bi bi-zoom-in"></i>
-                      </a>
-                      <a href="portfolio-details.html" class="details-link" title="View Project Details">
-                        <i class="bi bi-arrow-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="content">
-                  <h3>Mobile App Design</h3>
-                  <p>User-centered interface design</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-print">
-              <div class="portfolio-card">
-                <div class="image-container">
-                  <img src="assets/img/portfolio/portfolio-10.webp" class="img-fluid" alt="Packaging Design" loading="lazy">
-                  <div class="overlay">
-                    <div class="overlay-content">
-                      <a href="assets/img/portfolio/portfolio-10.webp" class="glightbox zoom-link" title="Packaging Design">
-                        <i class="bi bi-zoom-in"></i>
-                      </a>
-                      <a href="portfolio-details.html" class="details-link" title="View Project Details">
-                        <i class="bi bi-arrow-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="content">
-                  <h3>Packaging Design</h3>
-                  <p>Sustainable product packaging solutions</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-motion">
-              <div class="portfolio-card">
-                <div class="image-container">
-                  <img src="assets/img/portfolio/portfolio-11.webp" class="img-fluid" alt="Brand Animation" loading="lazy">
-                  <div class="overlay">
-                    <div class="overlay-content">
-                      <a href="assets/img/portfolio/portfolio-11.webp" class="glightbox zoom-link" title="Brand Animation">
-                        <i class="bi bi-zoom-in"></i>
-                      </a>
-                      <a href="portfolio-details.html" class="details-link" title="View Project Details">
-                        <i class="bi bi-arrow-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="content">
-                  <h3>Brand Animation</h3>
-                  <p>Dynamic brand identity systems</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-          </div><!-- End Portfolio Grid -->
 
         </div>
 
-      </div>
+    </div>
 
-    </section><!-- /Portfolio Section -->
-
-    <!-- Team Section -->
+</div>
     <section id="team" class="team section">
 
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <span class="description-title">Team</span>
-        <h2>Team</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
+        <span class="description-title">Divisi Riset & Development</span>
+        <h2>Divisi Riset & Development</h2>
+      </div>
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="row g-4">
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="team-member">
-              <div class="member-image">
-                <img src="assets/img/person/person-f-2.webp" class="img-fluid" alt="" loading="lazy">
-                <div class="social-overlay">
-                  <div class="social-icons">
-                    <a href="#"><i class="bi bi-linkedin"></i></a>
-                    <a href="#"><i class="bi bi-twitter-x"></i></a>
-                    <a href="#"><i class="bi bi-instagram"></i></a>
-                  </div>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Emma Rodriguez</h4>
-                <span>Senior Developer</span>
-                <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-              </div>
-            </div><!-- End Team Member -->
-          </div>
+         @foreach ($teams as $item)
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+    <div class="team-member">
+
+        {{-- Foto --}}
+        <div class="member-image">
+            <img src="{{ asset('storage/' . $item->photo) }}" 
+                 class="img-fluid" 
+                 alt="{{ $item->name }}" 
+                 loading="lazy"
+                 style="object-fit: cover; width:100%; height:300px;">
+        </div>
+
+        {{-- Info --}}
+        <div class="member-info">
+            <h4>{{ $item->name }}</h4>
+            <span>{{ $item->position }}</span>
+            <p>{{ $item->info }}</p>
+        </div>
+
+    </div>
+</div>
+@endforeach
+
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
             <div class="team-member">
@@ -1022,13 +516,15 @@
                 </div>
               </div>
               <div class="member-info">
-                <h4>Michael Torres</h4>
-                <span>Creative Director</span>
+                <h4>Dian Febrianto, S.Kom</h4>
+                <span>UI/UX Designer</span>
                 <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus.</p>
               </div>
             </div><!-- End Team Member -->
           </div>
 
+        
+          
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
             <div class="team-member">
               <div class="member-image">
@@ -1042,452 +538,738 @@
                 </div>
               </div>
               <div class="member-info">
-                <h4>Sarah Mitchell</h4>
-                <span>Project Manager</span>
+                <h4>Imam Sahroni, M.Kom</h4>
+                <span>Mobile Developer</span>
                 <p>Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
               </div>
             </div><!-- End Team Member -->
           </div>
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="team-member">
-              <div class="member-image">
-                <img src="assets/img/person/person-m-14.webp" class="img-fluid" alt="" loading="lazy">
-                <div class="social-overlay">
-                  <div class="social-icons">
-                    <a href="#"><i class="bi bi-linkedin"></i></a>
-                    <a href="#"><i class="bi bi-twitter-x"></i></a>
-                    <a href="#"><i class="bi bi-instagram"></i></a>
-                  </div>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>David Kim</h4>
-                <span>Business Analyst</span>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur.</p>
-              </div>
-            </div><!-- End Team Member -->
-          </div>
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="team-member">
-              <div class="member-image">
-                <img src="assets/img/person/person-f-13.webp" class="img-fluid" alt="" loading="lazy">
-                <div class="social-overlay">
-                  <div class="social-icons">
-                    <a href="#"><i class="bi bi-linkedin"></i></a>
-                    <a href="#"><i class="bi bi-twitter-x"></i></a>
-                    <a href="#"><i class="bi bi-instagram"></i></a>
-                  </div>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Lisa Chang</h4>
-                <span>Marketing Lead</span>
-                <p>Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              </div>
-            </div><!-- End Team Member -->
-          </div>
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="team-member">
-              <div class="member-image">
-                <img src="assets/img/person/person-m-15.webp" class="img-fluid" alt="" loading="lazy">
-                <div class="social-overlay">
-                  <div class="social-icons">
-                    <a href="#"><i class="bi bi-linkedin"></i></a>
-                    <a href="#"><i class="bi bi-twitter-x"></i></a>
-                    <a href="#"><i class="bi bi-instagram"></i></a>
-                  </div>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Ryan Cooper</h4>
-                <span>Software Engineer</span>
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.</p>
-              </div>
-            </div><!-- End Team Member -->
-          </div>
-
         </div>
 
       </div>
 
     </section><!-- /Team Section -->
+    
+    <section id="layanan-kami" class="layanan-kami section">
+     
+    <div class="container">
+        <div class="text-center mb-5">
+            <p class="section-title mb-1">Layanan Kami</p>
+            <p class="lead text-white-50">Kami menyediakan layanan berbasis jasa dan produk digital untuk mendukung transformasi bisnis melalui pengembangan teknologi dan strategi digital yang terintegrasi.</p>
+        </div>
+        
+        <div class="row g-4 mb-4">
+            
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card p-3 service-card">
+                    <div class="card-body">
+                        <i class="fa-solid fa-desktop service-icon"></i>
+                        <h5 class="card-title">POINT OF SALES</h5>
+                        <p class="card-text small">(Sistem yang mendukung transaksi jual-beli dan pencatatan stok, umumnya di supermarket, restoran, kafe, dll.)</p>
+                        <a href="#" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="pricing section">
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <span class="description-title">Pricing</span>
-        <h2>Pricing</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card p-3 service-card">
+                    <div class="card-body">
+                        <i class="fa-solid fa-gear service-icon"></i>
+                        <h5 class="card-title">ENTERPRISE RESOURCES PLANNING</h5>
+                        <p class="card-text small">(Paket sistem dan software yang digunakan oleh perusahaan untuk mengelola aktivitas bisnis mereka, seperti pengelolaan keuangan, manufaktur, supply chain, proyek, SDM, dan lain-lain.)</p>
+                        <a href="#" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card p-3 service-card">
+                    <div class="card-body">
+                        <i class="fa-solid fa-bookmark service-icon"></i>
+                        <h5 class="card-title">INVENTORY</h5>
+                        <p class="card-text small">(Sebuah sistem yang mengelola data seluruh persediaan barang, bahan baku, atau aset bergerak yang dimiliki suatu usaha.)</p>
+                        <a href="#" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card p-3 service-card">
+                    <div class="card-body">
+                        <i class="fa-solid fa-building service-icon"></i>
+                        <h5 class="card-title">WEB COMPANY PROFILE</h5>
+                        <p class="card-text small">(Website yang membuat profil perusahaan, informasi manajemen, tentang perusahaan atau brand, visi dan misi, our service atau product, our client dan partner, dan lain sebagainya.)</p>
+                        <a href="#" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="row g-4">
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="pricing-card">
-              <div class="pricing-header">
-                <h3>Basic</h3>
-                <div class="price">
-                  <span class="currency">$</span>
-                  <span class="amount">19</span>
-                  <span class="period">/ month</span>
-                </div>
-              </div>
-              <ul class="features-list">
-                <li><i class="bi bi-check-circle-fill"></i> Donec volutpat metus in erat</li>
-                <li><i class="bi bi-check-circle-fill"></i> Vestibulum ut erat consectetur</li>
-                <li><i class="bi bi-check-circle-fill"></i> Curabitur pretium orci sed metus</li>
-                <li class="disabled"><i class="bi bi-x-circle-fill"></i> Vivamus tincidunt risus ipsum</li>
-                <li class="disabled"><i class="bi bi-x-circle-fill"></i> Nullam lobortis nulla in diam</li>
-              </ul>
-              <div class="text-center">
-                <a href="#" class="btn btn-primary">Choose Plan</a>
-              </div>
-            </div>
-          </div>
 
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="pricing-card featured">
-              <div class="pricing-header">
-                <h3>Pro</h3>
-                <div class="price">
-                  <span class="currency">$</span>
-                  <span class="amount">49</span>
-                  <span class="period">/ month</span>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card p-3 service-card">
+                    <div class="card-body">
+                        <i class="fa-solid fa-computer service-icon"></i>
+                        <h5 class="card-title">DEVELOPMENT SOFTWARE</h5>
+                        <p class="card-text small">(Custom pembuatan aplikasi/sistem berbasis website, desktop & mobile.)</p>
+                        <a href="#" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
                 </div>
-              </div>
-              <ul class="features-list">
-                <li><i class="bi bi-check-circle-fill"></i> Donec volutpat metus in erat</li>
-                <li><i class="bi bi-check-circle-fill"></i> Vestibulum ut erat consectetur</li>
-                <li><i class="bi bi-check-circle-fill"></i> Curabitur pretium orci sed metus</li>
-                <li><i class="bi bi-check-circle-fill"></i> Vivamus tincidunt risus ipsum</li>
-                <li class="disabled"><i class="bi bi-x-circle-fill"></i> Nullam lobortis nulla in diam</li>
-              </ul>
-              <div class="text-center">
-                <a href="#" class="btn btn-primary">Choose Plan</a>
-              </div>
             </div>
-          </div>
 
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
-            <div class="pricing-card">
-              <div class="pricing-header">
-                <h3>Enterprise</h3>
-                <div class="price">
-                  <span class="currency">$</span>
-                  <span class="amount">99</span>
-                  <span class="period">/ month</span>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card p-3 service-card">
+                    <div class="card-body">
+                        <i class="fa-solid fa-pen-ruler service-icon"></i>
+                        <h5 class="card-title">UI/UX DESIGN</h5>
+                        <p class="card-text small">(Landing Pages, Wireframing, Prototype Mobile App Design, & Web App Design.)</p>
+                        <a href="#" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
                 </div>
-              </div>
-              <ul class="features-list">
-                <li><i class="bi bi-check-circle-fill"></i> Donec volutpat metus in erat</li>
-                <li><i class="bi bi-check-circle-fill"></i> Vestibulum ut erat consectetur</li>
-                <li><i class="bi bi-check-circle-fill"></i> Curabitur pretium orci sed metus</li>
-                <li><i class="bi bi-check-circle-fill"></i> Vivamus tincidunt risus ipsum</li>
-                <li><i class="bi bi-check-circle-fill"></i> Nullam lobortis nulla in diam</li>
-              </ul>
-              <div class="text-center">
-                <a href="#" class="btn btn-primary">Choose Plan</a>
-              </div>
             </div>
-          </div>
+            
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card p-3 service-card">
+                    <div class="card-body">
+                        <i class="fa-solid fa-user-tie service-icon"></i>
+                        <h5 class="card-title">IT CONSULTANT</h5>
+                        <p class="card-text small">(Jasa profesional yang menawarkan saran dan solusi teknologi untuk meningkatkan kinerja dan efisiensi operasional.)</p>
+                        <a href="#" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card p-3 service-card">
+                    <div class="card-body">
+                        <i class="fa-solid fa-bullhorn service-icon"></i>
+                        <h5 class="card-title">DIGITAL MARKETING</h5>
+                        <p class="card-text small">(Pemasaran digital SEO, Optimasi Iklan FB Ads dan Google Ads, TikTok Ads)</p>
+                        <a href="#" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </section><!-- /Pricing Section -->
+    </div>
+    <style>
+      #layanan-kami .container {
+    background: #2f2f2f; /* abu-abu gelap elegan */
+    border-radius: 30px;
+    padding: 40px; /* biar kontennya tidak nempel */
+    border: 1px solid #444;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
 
-    <!-- Faq Section -->
-    <section id="faq" class="faq section">
+            .section-title {
+          color: #ffffff;
+          font-size: 2rem;
+          font-weight: 700;
+          margin-bottom: 5px;
+      }
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+      .service-card {
+          background-color: #2b2b2b;
+          border: 1px solid #444444;
+          color: #cccccc;
+          height: 100%;
+          transition: all 0.3s ease;
+          border-radius: 30px; /* <<< DITAMBAHKAN */
+          overflow: hidden; /* Biar efek rapi saat hover */
+      }
 
-        <div class="row justify-content-center">
-          <div class="col-lg-10">
+      .service-card:hover {
+          border-color: #00ff73;
+          box-shadow: 0 0 15px rgba(0, 255, 115, 0.25);
+          transform: translateY(-5px);
+      }
 
-            <div class="faq-wrapper">
+      .service-icon {
+          color: #00ff73;
+          font-size: 3rem;
+          margin-bottom: 15px;
+      }
 
-              <div class="faq-item faq-active">
-                <div class="faq-header">
-                  <div class="faq-icon">
-                    <i class="bi bi-question-circle"></i>
-                  </div>
-                  <h4>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar?</h4>
-                  <div class="faq-toggle">
-                    <i class="bi bi-plus"></i>
-                    <i class="bi bi-dash"></i>
-                  </div>
-                </div>
-                <div class="faq-content">
-                  <div class="content-inner">
-                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p>
-                  </div>
-                </div>
-              </div><!-- End FAQ Item -->
+      .card-title {
+          color: #ffffff;
+          font-weight: 600;
+          margin-bottom: 10px;
+      }
 
-              <div class="faq-item">
-                <div class="faq-header">
-                  <div class="faq-icon">
-                    <i class="bi bi-question-circle"></i>
-                  </div>
-                  <h4>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem?</h4>
-                  <div class="faq-toggle">
-                    <i class="bi bi-plus"></i>
-                    <i class="bi bi-dash"></i>
-                  </div>
-                </div>
-                <div class="faq-content">
-                  <div class="content-inner">
-                    <p>Donec rutrum congue leo eget malesuada. Sed porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Proin eget tortor risus. Curabitur aliquet quam id dui posuere blandit.</p>
-                  </div>
-                </div>
-              </div><!-- End FAQ Item -->
+      .read-more {
+          color: #00ff73 !important;
+          text-decoration: none;
+          font-weight: 500;
+      }
 
-              <div class="faq-item">
-                <div class="faq-header">
-                  <div class="faq-icon">
-                    <i class="bi bi-question-circle"></i>
-                  </div>
-                  <h4>Vestibulum ante ipsum primis in faucibus orci luctus?</h4>
-                  <div class="faq-toggle">
-                    <i class="bi bi-plus"></i>
-                    <i class="bi bi-dash"></i>
-                  </div>
-                </div>
-                <div class="faq-content">
-                  <div class="content-inner">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-                  </div>
-                </div>
-              </div><!-- End FAQ Item -->
+      .read-more i {
+          margin-left: 5px;
+          transition: 0.2s ease;
+      }
 
-              <div class="faq-item">
-                <div class="faq-header">
-                  <div class="faq-icon">
-                    <i class="bi bi-question-circle"></i>
-                  </div>
-                  <h4>Nulla facilisi morbi tempus iaculis urna id volutpat?</h4>
-                  <div class="faq-toggle">
-                    <i class="bi bi-plus"></i>
-                    <i class="bi bi-dash"></i>
-                  </div>
-                </div>
-                <div class="faq-content">
-                  <div class="content-inner">
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
-                  </div>
-                </div>
-              </div><!-- End FAQ Item -->
+      .read-more:hover i {
+          transform: translateX(4px);
+      }
+    </style>
+    </section><!-- /About Section -->
 
-              <div class="faq-item">
-                <div class="faq-header">
-                  <div class="faq-icon">
-                    <i class="bi bi-question-circle"></i>
-                  </div>
-                  <h4>Praesent sapien massa, convallis a pellentesque nec?</h4>
-                  <div class="faq-toggle">
-                    <i class="bi bi-plus"></i>
-                    <i class="bi bi-dash"></i>
-                  </div>
-                </div>
-                <div class="faq-content">
-                  <div class="content-inner">
-                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint.</p>
-                  </div>
-                </div>
-              </div><!-- End FAQ Item -->
-
+    <!-- Services Section -->
+      <section id="portofolio" class="portfolio-section">
+        <div class="container">
+            <div class="text-center">
+                <p class="portfolio-title"><span class="portfolio-title-star"></span> Portofolio & Pencapaian</p>
             </div>
 
-          </div>
+            <div class="row">
+                
+                <div class="col-lg-5 col-md-12 mb-4">
+                    <div class="row g-3 h-100">
+                        
+                        <div class="col-6">
+                            <div class="side-by-side-card">
+                                <p class="text-white-50 small"></p>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="side-by-side-card">
+                                <p class="text-white-50 small"></p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="col-lg-7 col-md-12">
+                    <div class="content-card">
+                        
+                        <h3 class="main-heading">MENGAPA BISNIS MEMPERCAYAI KAMI MEMBERIKAN SOLUSI TERBAIK</h3>
+                        
+                        <p class="description-text">
+                            Di PT Aleena Mandiri Group, kami mengombinasikan keahlian teknologi informasi, strategi digital, dan pengalaman industri untuk menghadirkan solusi yang benar-benar memberikan dampak. Tim kami bekerja secara dekat dengan setiap klien untuk memahami kebutuhan bisnis secara spesifik dan menyeluruh.
+                        </p>
+                        
+                        <h4 class="problem-heading">Permasalahan yang Sering Dihadapi Bisnis</h4>
+                        <ul class="problem-list">
+                            <li><i class="fa-solid fa-star"></i> Kesulitan mengelola sistem dan proses bisnis secara terintegrasi</li>
+                            <li><i class="fa-solid fa-star"></i> Sistem dan aplikasi yang sudah tidak efektif atau tidak sesuai kebutuhan</li>
+                            <li><i class="fa-solid fa-star"></i> Tantangan dalam memanfaatkan teknologi untuk meningkatkan efisiensi dan daya saing</li>
+                        </ul>
+
+                        <div class="action-area">
+                            
+                            <div>
+                                <div class="contact-box mb-3">
+                                    Kontak Kami <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </div>
+                                
+                                <div class="partner-group">
+                                    <div class="partner-box">10+</div>
+                                    <div class="partner-box" style="background-color: #7abf40;">&nbsp;</div>
+                                    <div class="partner-box" style="background-color: #8ce450;">&nbsp;</div>
+                                    <span class="partner-text">10+ Mitra Kami</span>
+                                </div>
+                            </div>
+                            
+                            <div class="achievement-box">
+                                <div class="achievement-item">
+                                    <span class="text-white">10+</span>
+                                    <span class="text-label">Mitra Kami</span>
+                                    <i class="fa-solid fa-user-group"></i>
+                                </div>
+                                <div class="achievement-item">
+                                    <span class="text-white">10+</span>
+                                    <span class="text-label">Project selesai</span>
+                                    <i class="fa-solid fa-clipboard-check"></i>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
         </div>
+        <style>
+          
+            .portfolio-section {
+            padding: 80px 0;
+            background-color: #1e1e1e;
+            border-radius: 30px;
+        }
 
-      </div>
+        /* =====================================
+           Gaya Judul Bagian
+           ===================================== */
+        .portfolio-title {
+            color: #ffffff;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+        
+        .portfolio-title-star {
+            color: #00ff73; /* Hijau Neon */
+        }
 
-    </section><!-- /Faq Section -->
+        /* =====================================
+           Gaya Kartu Konten Kanan (Satu Kartu Penuh)
+           ===================================== */
+        .content-card {
+            background-color: #242424; 
+            border-radius: 10px;
+            padding: 40px;
+            height: 100%; /* Penting agar tingginya menyesuaikan konten kiri */
+        }
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <span class="description-title">Contact</span>
-        <h2>Contact</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
+        .main-heading {
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
 
-      <div class="container">
-        <div class="contact-wrapper">
-          <div class="contact-info-panel">
-            <div class="contact-info-header">
-              <h3>Contact Information</h3>
-              <p>Dignissimos deleniti accusamus rerum voluptate. Dignissimos rerum sit maiores reiciendis voluptate inventore ut.</p>
+        .description-text {
+            color: #cccccc;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .problem-heading {
+            color: #ffffff;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .problem-list {
+            list-style: none; 
+            padding-left: 0;
+        }
+        
+        .problem-list li {
+            color: #cccccc;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .problem-list li i {
+            color: #00ff73; /* Ikon Bintang Hijau Neon */
+            margin-right: 10px;
+        }
+        
+        /* =====================================
+           Gaya Kartu Pencapaian Bawah
+           ===================================== */
+
+        .action-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end; 
+            margin-top: 30px;
+        }
+        
+        .contact-box {
+            background-color: #557733; 
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact-box:hover {
+            background-color: #779955;
+        }
+
+        .contact-box i {
+            margin-left: 10px;
+        }
+        
+        .partner-box {
+            background-color: #6a9b3a; 
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #1e1e1e;
+            position: relative;
+            margin-right: -15px; 
+        }
+        
+        .partner-text {
+            color: #ffffff;
+            font-weight: 600;
+            margin-left: 20px;
+            font-size: 0.9rem;
+        }
+
+        .partner-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .achievement-box {
+            text-align: right;
+        }
+
+        .achievement-item {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .achievement-item span {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-right: 5px;
+            line-height: 1;
+        }
+        
+        .achievement-item .text-label {
+            font-size: 0.8rem;
+            color: #aaaaaa;
+            font-weight: 500;
+        }
+        
+        .achievement-item i {
+            font-size: 1rem;
+            color: #BFF747;
+            margin-left: 5px;
+        }
+        
+        /* =====================================
+           Gaya Kustom untuk Dua Kartu Berdampingan di Kiri
+           ===================================== */
+        
+        /* Kartu Berdampingan di Kiri */
+        .side-by-side-card {
+            background-color: #2b2b2b;
+            border-radius: 10px;
+            height: 100%; /* Penting agar tingginya sama */
+            min-height: 250px; 
+            padding: 20px;
+        }
+
+        /* Untuk Mobile: Kedua kartu kiri akan bertumpuk (100% lebar) */
+        @media (max-width: 992px) {
+            .col-lg-5 .row {
+                margin: 0; /* Hilangkan margin row internal */
+            }
+            .col-lg-5 .col-6 {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .content-card {
+                margin-top: 20px;
+            }
+            /* ... Gaya responsif lainnya dari kode sebelumnya ... */
+        }
+      
+        </style>
+    </section>
+
+    <!-- Steps Section -->
+     <section id="news" class="news-section">
+        <div class="container">
+            <div class="text-center">
+              <p class="news-title"><span class="news-title-star">Berita</span></p>
             </div>
 
-            <div class="contact-info-cards">
-              <div class="info-card">
-                <div class="icon-container">
-                  <i class="bi bi-pin-map-fill"></i>
-                </div>
-                <div class="card-content">
-                  <h4>Our Location</h4>
-                  <p>4952 Hilltop Dr, Anytown, CA 90210</p>
-                </div>
-              </div>
+            <div class="row g-4">
+                
+                            @foreach ($berita as $item)
+                <div class="col-lg-4 col-md-6">
+                    <div class="news-card">
 
-              <div class="info-card">
-                <div class="icon-container">
-                  <i class="bi bi-envelope-open"></i>
-                </div>
-                <div class="card-content">
-                  <h4>Email Us</h4>
-                  <p>info@example.com</p>
-                </div>
-              </div>
+                        <img src="{{ asset('storage/' . $item->gambar) }}" 
+                            alt="{{ $item->judul }}" 
+                            class="news-image">
 
-              <div class="info-card">
-                <div class="icon-container">
-                  <i class="bi bi-telephone-fill"></i>
-                </div>
-                <div class="card-content">
-                  <h4>Call Us</h4>
-                  <p>+1 (555) 123-4567</p>
-                </div>
-              </div>
+                        <div class="news-content">
+                            <h4 class="news-heading">{{ $item->judul }}</h4>
 
-              <div class="info-card">
-                <div class="icon-container">
-                  <i class="bi bi-clock-history"></i>
+                            <a href="{{ route('berita.show', $item->slug) }}" class="read-more-link">
+                Readmore <i class="fa-solid fa-arrow-right"></i>
+            </a>
+                        </div>
+
+                    </div>
                 </div>
-                <div class="card-content">
-                  <h4>Working Hours</h4>
-                  <p>Monday-Saturday: 9AM - 7PM</p>
-                </div>
-              </div>
+                @endforeach
+
             </div>
-
-            <div class="social-links-panel">
-              <h5>Follow Us</h5>
-              <div class="social-icons">
-                <a href="#"><i class="bi bi-facebook"></i></a>
-                <a href="#"><i class="bi bi-twitter-x"></i></a>
-                <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-                <a href="#"><i class="bi bi-youtube"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="contact-form-panel">
-            <div class="map-container">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-
-            <div class="form-container">
-              <h3>Send Us a Message</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipiscing elit mauris hendrerit faucibus imperdiet nec eget felis.</p>
-
-              <form action="forms/contact.php" method="post" class="php-email-form">
-                <div class="form-floating mb-3">
-                  <input type="text" class="form-control" id="nameInput" name="name" placeholder="Full Name" required="">
-                  <label for="nameInput">Full Name</label>
-                </div>
-
-                <div class="form-floating mb-3">
-                  <input type="email" class="form-control" id="emailInput" name="email" placeholder="Email Address" required="">
-                  <label for="emailInput">Email Address</label>
-                </div>
-
-                <div class="form-floating mb-3">
-                  <input type="text" class="form-control" id="subjectInput" name="subject" placeholder="Subject" required="">
-                  <label for="subjectInput">Subject</label>
-                </div>
-
-                <div class="form-floating mb-3">
-                  <textarea class="form-control" id="messageInput" name="message" rows="5" placeholder="Your Message" style="height: 150px" required=""></textarea>
-                  <label for="messageInput">Your Message</label>
-                </div>
-
-                <div class="my-3">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-                </div>
-
-                <div class="d-grid">
-                  <button type="submit" class="btn-submit">Send Message <i class="bi bi-send-fill ms-2"></i></button>
-                </div>
-              </form>
-            </div>
-          </div>
         </div>
-      </div>
-    </section><!-- /Contact Section -->
+        <style>
+            
+        
 
+        /* =====================================
+           Gaya Judul Bagian
+           ===================================== */
+        .news-title {
+            color: #ffffff;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+        
+        .news-title-star {
+            color: #ffffff; /* Hijau Neon */
+        }
+
+        /* =====================================
+           Gaya Kartu Berita
+           ===================================== */
+        .news-card {
+            background-color: #2b2b2b; /* Latar belakang kartu gelap */
+            border: 1px solid #444444;
+            border-radius: 10px;
+            overflow: hidden; /* Penting untuk gambar */
+            height: 100%; /* Agar semua kartu memiliki tinggi yang sama */
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .news-card:hover {
+            box-shadow: 0 0 15px rgba(0, 255, 115, 0.2);
+            transform: translateY(-5px);
+            border-color: #BFF747;
+        }
+
+        /* Gambar Berita */
+        .news-image {
+            width: 100%;
+            height: 250px; /* Tinggi tetap untuk gambar */
+            object-fit: cover; /* Memastikan gambar mengisi area tanpa terdistorsi */
+        }
+
+        /* Konten di Bawah Gambar */
+        .news-content {
+            padding: 20px;
+        }
+
+        /* Judul Berita */
+        .news-heading {
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            min-height: 50px; /* Tinggi minimum agar semua judul terlihat */
+        }
+
+        /* Link Read More */
+        .read-more-link {
+            color: #BFF747 !important;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-block;
+            transition: color 0.3s;
+        }
+
+        .read-more-link:hover {
+            color: #BFF747 !important;
+        }
+
+        .read-more-link i {
+            margin-left: 5px;
+            font-size: 0.9rem;
+        }
+
+        /* Penyesuaian Responsif */
+        @media (max-width: 768px) {
+            .col-lg-4 {
+                margin-bottom: 30px;
+            }
+        }
+        </style>
+    </section>
   </main>
 
-  <footer id="footer" class="footer light-background">
-
+  <footer class="main-footer">
     <div class="container">
-      <div class="row gy-3">
-        <div class="col-lg-3 col-md-6 d-flex">
-          <i class="bi bi-geo-alt icon"></i>
-          <div class="address">
-            <h4>Address</h4>
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p></p>
-          </div>
+        <div class="row justify-content-between">
+            <!-- Logo & Deskripsi -->
+            <div class="col-lg-4 col-md-12">
+                <h1 class="footer-logo">Aleéna</h1>
+                <p class="footer-logo-sub">IT Consultant & Digital Marketing</p>
+                <p class="footer-description">
+                    Aleena Mandiri Group hadir sebagai mitra konsultan IT dan Digital Marketing yang siap mendukung perusahaan dalam mengatasi tantangan serta memanfaatkan peluang yang ditawarkan oleh teknologi.
+                </p>
+            </div>
 
+            <!-- Tautan -->
+            <div class="col-lg-3 col-md-6">
+                <h4 class="footer-heading">Tautan</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Beranda</a></li>
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">Produk</a></li>
+                    <li><a href="#">Jasa</a></li>
+                    <li><a href="#">Mitra Kami</a></li>
+                </ul>
+            </div>
+
+            <!-- Kontak -->
+            <div class="col-lg-5 col-md-6 offset-lg-0">
+                <h4 class="contact-heading">Kontak Kami</h4>
+                <ul class="contact-info">
+                    <li>
+                        <i class="fa-solid fa-phone"></i>
+                        <a href="tel:087753172270" style="color: inherit;">087753172270</a>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div class="address-text">
+                            Perumahan Bernardy Land Slawu <br>
+                            Cluster Alstonia Blok AC 157  <br>
+                            Puring, Slawu, Patrang <br>
+                            Kabupaten Jember, Jawa Timur 68116
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
 
-        <div class="col-lg-3 col-md-6 d-flex">
-          <i class="bi bi-telephone icon"></i>
-          <div>
-            <h4>Contact</h4>
-            <p>
-              <strong>Phone:</strong> <span>+1 5589 55488 55</span><br>
-              <strong>Email:</strong> <span>info@example.com</span><br>
-            </p>
-          </div>
+        <!-- Copyright -->
+        <div class="row">
+            <div class="col-12 text-center footer-copyright">
+                <p>Copyright © 2025. All Rights Reserved.</p>
+            </div>
         </div>
-
-        <div class="col-lg-3 col-md-6 d-flex">
-          <i class="bi bi-clock icon"></i>
-          <div>
-            <h4>Opening Hours</h4>
-            <p>
-              <strong>Mon-Sat:</strong> <span>11AM - 23PM</span><br>
-              <strong>Sunday</strong>: <span>Closed</span>
-            </p>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6">
-          <h4>Follow Us</h4>
-          <div class="social-links d-flex">
-            <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
-            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-
-      </div>
     </div>
 
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Nexa</strong> <span>All Rights Reserved</span></p>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
-    </div>
+    <!-- STYLE -->
+    <style>
+        /* =====================================
+           Footer Global
+        ===================================== */
+        .main-footer {
+            background-color: #000;
+            color: #fff;
+            padding: 60px 0 20px;
+            font-family: Arial, sans-serif;
+            font-size: 0.9rem;
+        }
 
-  </footer>
+        /* Logo */
+        .footer-logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #fff;
+            line-height: 1;
+        }
+
+        .footer-logo-sub {
+            font-size: 0.8rem;
+            color: #fff;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .footer-description {
+            color: #ccc;
+            line-height: 1.8;
+            font-size: 0.85rem;
+            margin-top: 15px;
+        }
+
+        /* =====================================
+           Tautan
+        ===================================== */
+        .footer-heading {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li a {
+            color: #ccc;
+            text-decoration: none;
+            line-height: 2.2;
+            transition: 0.3s;
+        }
+
+        .footer-links li a:hover {
+            color: #BFF747;
+        }
+
+        /* =====================================
+           Kontak
+        ===================================== */
+        .contact-heading {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #fff;
+            border-bottom: 2px solid #BFF747;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .contact-info {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            color: #ccc;
+        }
+
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+        }
+
+        .contact-info i {
+            color: #BFF747;
+            margin-right: 15px;
+            font-size: 1.1rem;
+            margin-top: 2px;
+        }
+
+        .address-text {
+            line-height: 1.6;
+        }
+
+        /* =====================================
+           Copyright
+        ===================================== */
+        .footer-copyright {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+            color: #555;
+            font-size: 0.75rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .col-lg-4,
+            .col-lg-3 {
+                margin-bottom: 30px;
+            }
+        }
+        
+    </style>
+</footer>
+
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
@@ -1507,7 +1289,30 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+<script>
+    const sidebar = document.getElementById("sidebarAleena");
+    const openBtn = document.getElementById("openSidebar");
+    const closeBtn = document.getElementById("closeSidebar");
+    const overlay = document.getElementById("sidebarOverlay");
 
+    openBtn.onclick = function(e) {
+        e.preventDefault();
+        sidebar.style.left = "0";
+        overlay.style.display = "block";
+    };
+
+    closeBtn.onclick = function() {
+        sidebar.style.left = "-320px";
+        overlay.style.display = "none";
+    };
+
+    overlay.onclick = function() {
+        sidebar.style.left = "-320px";
+        overlay.style.display = "none";
+    };
+</script>
+
+  
 </body>
 
 </html>

@@ -1,0 +1,67 @@
+/* Section Berita */
+.section-berita {
+    padding: 60px 0;
+}
+
+.news-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+}
+
+.news-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.news-content {
+    padding: 20px;
+}
+
+.news-heading {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    min-height: 50px;
+}
+
+.read-more-link {
+    color: #0d6efd;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.read-more-link i {
+    margin-left: 4px;
+}
+
+/* Detail Berita */
+.section-detail-berita {
+    padding: 80px 0;
+}
+
+.detail-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.detail-image {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 35px;
+}
+
+.detail-body {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #444;
+}
