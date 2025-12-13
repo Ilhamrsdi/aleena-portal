@@ -727,9 +727,6 @@
             </div>
         </div>
     @endforeach
-
-
-
     </div>
 </div>
 
@@ -753,9 +750,10 @@
                         <div class="action-area">
                             
                             <div>
-                                <div class="contact-box mb-3">
+                                <div class="contact-box mb-3" id="contactBtn">
                                     Kontak Kami <i class="fa-solid fa-arrow-up-right-from-square"></i>
                                 </div>
+
                                 
                                <div class="partner-group">
                                 <div class="partner-box">
@@ -1291,35 +1289,47 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 <script>
-    const sidebar = document.getElementById('sidebarAleena');
-  const overlay = document.getElementById('sidebarOverlay');
-  const openBtn = document.getElementById('openSidebar');
-  const closeBtn = document.getElementById('closeSidebar');
+   const sidebar = document.getElementById('sidebarAleena');
+const overlay = document.getElementById('sidebarOverlay');
+const openBtn = document.getElementById('openSidebar');
+const closeBtn = document.getElementById('closeSidebar');
 
-  function openSidebar() {
-      sidebar.style.left = '0';
-      overlay.style.display = 'block';
-      setTimeout(() => overlay.style.opacity = '1', 10);
-  }
+// Tombol baru untuk membuka sidebar
+const contactBtn = document.getElementById('contactBtn');
 
-  function closeSidebar() {
-      sidebar.style.left = '-320px';
-      overlay.style.opacity = '0';
-      setTimeout(() => overlay.style.display = 'none', 300);
-  }
+function openSidebar() {
+    sidebar.style.left = '0';
+    overlay.style.display = 'block';
+    setTimeout(() => overlay.style.opacity = '1', 10);
+}
 
-  openBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      openSidebar();
-  });
+function closeSidebar() {
+    sidebar.style.left = '-320px';
+    overlay.style.opacity = '0';
+    setTimeout(() => overlay.style.display = 'none', 300);
+}
 
-  closeBtn.addEventListener('click', closeSidebar);
-  overlay.addEventListener('click', closeSidebar);
+// Event listener untuk tombol menu
+openBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    openSidebar();
+});
 
-  // Optional: tekan ESC untuk menutup sidebar
-  document.addEventListener('keydown', function(e) {
-      if(e.key === "Escape") closeSidebar();
-  });
+// Event listener untuk tombol kontak
+if(contactBtn){
+    contactBtn.addEventListener('click', function(e){
+        e.preventDefault();
+        openSidebar();
+    });
+}
+
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+
+// Optional: tekan ESC untuk menutup sidebar
+document.addEventListener('keydown', function(e) {
+    if(e.key === "Escape") closeSidebar();
+});
 </script>
 
   
