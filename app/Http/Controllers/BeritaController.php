@@ -11,7 +11,7 @@ class BeritaController extends Controller
 {
     public function index()
     {
-        $beritas = Berita::orderBy('created_at', 'desc')->paginate(10);
+        $beritas = Berita::latest()->paginate(10);
         return view('admin.berita.index', compact('beritas'));
     }
 
@@ -22,91 +22,87 @@ class BeritaController extends Controller
 
     public function store(Request $request)
     {
-        // **Merge slug sebelum validasi supaya validasi unique slug bekerja**
-        $request->merge([
-            'slug' => Str::slug($request->judul)
-        ]);
+        // generate slug
+        $slug = Str::slug($request->judul);
 
-        // Validasi input
         $request->validate([
-            'judul' => 'required|string|max:255',
-            'slug'  => 'required|string|max:255|unique:beritas,slug',
-            'isi'   => 'required|string',
-            'gambar'=> 'nullable|image|max:2048',
+            'judul'  => 'required|string|max:255|unique:beritas,judul',
+            'konten'    => 'required|string',
+            'gambar' => 'nullable|image|max:2048',
         ]);
 
-        // Simpan gambar jika ada
         $gambarPath = null;
         if ($request->hasFile('gambar')) {
-            // Pastikan sudah menjalankan: php artisan storage:link
             $gambarPath = $request->file('gambar')->store('berita_gambar', 'public');
         }
 
-        // Simpan data berita ke database
         Berita::create([
-            'judul' => $request->judul,
-            'slug'  => $request->slug,
-            'isi'   => $request->isi,
-            'gambar'=> $gambarPath,
+            'judul'  => $request->judul,
+            'slug'   => $slug,
+            'konten'    => $request->konten,
+            'gambar' => $gambarPath,
         ]);
 
-        // Redirect ke index dengan flash message
-        return redirect()->route('admin.berita.index')->with('success', 'Berita berhasil ditambahkan.');
+        return redirect()
+            ->route('admin.berita.index')
+            ->with('success', 'Berita berhasil ditambahkan');
     }
 
-   public function show($slug)
-{
-    $berita = Berita::where('slug', $slug)->firstOrFail();
-
-    return view('berita-detail', compact('berita'));
-}
-
-
-   public function edit($id)
-{
-    $berita = Berita::findOrFail($id); // ambil berita berdasarkan id
-    return view('admin.berita.edit', compact('berita'));
-}
-
-
-    public function update(Request $request, Berita $berita)
+    public function show($slug)
     {
-        $request->merge([
-            'slug' => Str::slug($request->judul)
-        ]);
+        $berita = Berita::where('slug', $slug)->firstOrFail();
+        return view('berita-detail', compact('berita'));
+    }
+
+    public function edit($slug)
+    {
+        $berita = Berita::where('slug', $slug)->firstOrFail();
+        return view('admin.berita.edit', compact('berita'));
+    }
+
+    public function update(Request $request, $slug)
+    {
+        $berita = Berita::where('slug', $slug)->firstOrFail();
+        $newSlug = Str::slug($request->judul);
 
         $request->validate([
-            'judul' => 'required|string|max:255',
-            'slug'  => 'required|string|max:255|unique:beritas,slug,' . $berita->id,
-            'isi'   => 'required|string',
-            'gambar'=> 'nullable|image|max:2048',
+            'judul'  => 'required|string|max:255|unique:beritas,judul,' . $berita->id,
+            'konten'    => 'required|string',
+            'gambar' => 'nullable|image|max:2048',
         ]);
 
+        // upload gambar baru
         if ($request->hasFile('gambar')) {
-            $gambarPath = $request->file('gambar')->store('berita_gambar', 'public');
-        } else {
-            $gambarPath = $berita->gambar;
+            if ($berita->gambar && Storage::disk('public')->exists($berita->gambar)) {
+                Storage::disk('public')->delete($berita->gambar);
+            }
+
+            $berita->gambar = $request->file('gambar')->store('berita_gambar', 'public');
         }
 
         $berita->update([
             'judul' => $request->judul,
-            'slug'  => $request->slug,
-            'isi'   => $request->isi,
-            'gambar'=> $gambarPath,
+            'slug'  => $newSlug,
+            'konten'   => $request->konten,
         ]);
 
-        return redirect()->route('admin.berita.index')->with('success', 'Berita berhasil diupdate.');
+        return redirect()
+            ->route('admin.berita.index')
+            ->with('success', 'Berita berhasil diperbarui');
     }
 
-    public function destroy(Berita $berita)
+    public function destroy($slug)
     {
-        // Hapus gambar dari storage jika ada
-        if ($berita->gambar && \Storage::disk('public')->exists($berita->gambar)) {
-            \Storage::disk('public')->delete($berita->gambar);
+        $berita = Berita::where('slug', $slug)->firstOrFail();
+
+        if ($berita->gambar && Storage::disk('public')->exists($berita->gambar)) {
+            Storage::disk('public')->delete($berita->gambar);
         }
 
         $berita->delete();
 
-        return redirect()->route('admin.berita.index')->with('success', 'Berita berhasil dihapus.');
+        return redirect()
+            ->route('admin.berita.index')
+            ->with('success', 'Berita berhasil dihapus');
     }
 }

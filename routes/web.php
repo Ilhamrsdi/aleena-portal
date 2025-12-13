@@ -51,16 +51,13 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     // =======================
     // CRUD BERITA (ADMIN)
     // =======================
-    Route::resource('berita', BeritaController::class)
-        ->except(['show'])
-        ->names([
-            'index'   => 'admin.berita.index',
-            'create'  => 'admin.berita.create',
-            'store'   => 'admin.berita.store',
-            'edit'    => 'admin.berita.edit',
-            'update'  => 'admin.berita.update',
-            'destroy' => 'admin.berita.destroy',
-        ]);
+    Route::get('/berita', [BeritaController::class, 'index'])->name('berita.index');
+    Route::get('/berita/create', [BeritaController::class, 'create'])->name('berita.create');
+    Route::post('/berita', [BeritaController::class, 'store'])->name('berita.store');
+    Route::get('/berita/{slug}/edit', [BeritaController::class, 'edit'])->name('berita.edit');
+    Route::put('/berita/{slug}', [BeritaController::class, 'update'])->name('berita.update');
+    Route::delete('/berita/{slug}', [BeritaController::class, 'destroy'])->name('berita.destroy');
+
 
 
     // =======================

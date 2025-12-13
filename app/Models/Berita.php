@@ -11,7 +11,7 @@ class Berita extends Model
     protected $fillable = [
         'judul',
         'slug',
-        'isi',
+        'konten',
         'gambar',
     ];
      public function getRouteKeyName()

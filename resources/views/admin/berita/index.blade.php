@@ -41,7 +41,7 @@
                     <td>{{ $item->created_at->format('d M Y') }}</td>
 
                     <td class="text-center">
-                        <a href="{{ route('admin.berita.edit', $item->id) }}" class="btn btn-warning btn-sm">
+                        <a href="{{ route('admin.berita.edit', $item->slug) }}" class="btn btn-warning btn-sm">
                             <i class="fa fa-edit"></i>
                         </a>
 

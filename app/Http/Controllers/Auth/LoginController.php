@@ -33,13 +33,15 @@ class LoginController extends Controller
 
         $remember = $request->remember_me ? true : false;
 
-        // Coba login
+       
         if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
           return redirect()->route('dashboard');
         }
 
-        return response()->json(['status' => 'error', 'message' => 'Username atau password salah'], 401);
+     return back()->withErrors([
+            'login_error' => 'Username/Email atau Password salah.',
+        ])->withInput($request->only('username', 'remember_me'));
     }
 
     // Logout

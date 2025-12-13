@@ -1,6 +1,16 @@
 @extends('layouts.dashboard')
 @section('content')
 
+@if ($errors->any())
+<div class="alert alert-danger">
+<ul>
+@foreach ($errors->all() as $error)
+<li>{{ $error }}</li>
+@endforeach
+</ul>
+</div>
+@endif
+
 <div class="card shadow-sm p-4">
     <h4 class="mb-4">Edit Team</h4>
 

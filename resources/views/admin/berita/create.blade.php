@@ -2,6 +2,16 @@
 
 @section('content')
 
+@if ($errors->any())
+<div class="alert alert-danger">
+<ul>
+@foreach ($errors->all() as $error)
+<li>{{ $error }}</li>
+@endforeach
+</ul>
+</div>
+@endif
+
 <div class="card shadow-sm p-4">
 
     <h4 class="mb-3">Tambah Berita</h4>
@@ -15,7 +25,7 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Isi Berita</label>
-            <textarea name="isi" rows="5" class="form-control" required></textarea>
+            <textarea name="konten" rows="5" class="form-control" required></textarea>
         </div>
 
         <div class="mb-3">

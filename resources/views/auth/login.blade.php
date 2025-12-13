@@ -79,6 +79,15 @@
 <body>
 
     <div class="login-container">
+        @if ($errors->any())
+<div class="alert alert-danger">
+<ul>
+@foreach ($errors->all() as $error)
+<li>{{ $error }}</li>
+@endforeach
+</ul>
+</div>
+@endif
         <h2 class="text-center login-title">Selamat Datang</h2>
         <p class="text-center text-secondary mb-4">Silakan masuk ke akun Anda</p>
         
