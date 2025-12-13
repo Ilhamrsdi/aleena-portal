@@ -28,20 +28,19 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>
-                    <img src="{{ asset('storage/' . $item->gambar) }}" 
+                    <img src="{{ asset('storage/' . $item->photo) }}" 
                     width="70" height="50" 
                     style="object-fit: cover; border-radius: 4px;">
-
                     </td>
 
                     <td>{{ $item->created_at->format('d M Y') }}</td>
 
                     <td class="text-center">
-                        <a href="{{ route('admin.berita.edit', $item->id) }}" class="btn btn-warning btn-sm">
+                        <a href="{{ route('admin.portofolio.edit', $item->id) }}" class="btn btn-warning btn-sm">
                             <i class="fa fa-edit"></i>
                         </a>
 
-                        <form action="{{ route('admin.berita.destroy', $item->id) }}" method="POST" 
+                        <form action="{{ route('admin.portofolio.destroy', $item->id) }}" method="POST" 
                               class="d-inline-block"
                               onsubmit="return confirm('Yakin ingin menghapus berita ini?')">
                             @csrf

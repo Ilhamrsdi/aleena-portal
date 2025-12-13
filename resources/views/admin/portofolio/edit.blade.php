@@ -1,70 +1,57 @@
-@extends('layouts.dashboard') 
+@extends('layouts.dashboard')
 @section('content')
 
 <div class="card shadow-sm p-4">
+    <h4 class="mb-4">Edit Portofolio</h4>
 
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h4 class="m-0">Manajemen Portofolio</h4>
+    <form action="{{ route('admin.portofolio.update', $portofolio->id) }}" 
+          method="POST" 
+          enctype="multipart/form-data">
+        @csrf
+        @method('PUT')
 
-        <a href="{{ route('admin.portofolio.create') }}" class="btn btn-primary btn-sm">
-            <i class="fa fa-plus"></i> Tambah Portofolio
-        </a>
-    </div>
+        <!-- Judul -->
+        <div class="mb-3">
+            <label class="form-label">Judul</label>
+            <input type="text" 
+                   name="judul" 
+                   class="form-control @error('judul') is-invalid @enderror"
+                   value="{{ old('judul', $portofolio->judul) }}">
+            @error('judul')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div>
 
-    <div class="table-responsive">
-        <table class="table table-hover align-middle">
-            <thead class="table-dark">
-                <tr>
-                    <th width="60">No</th>
-                    <th>Gambar</th>
-                    <th>Tanggal</th>
-                    <th width="150" class="text-center">Aksi</th>
-                </tr>
-            </thead>
+        <!-- Gambar Lama -->
+        <div class="mb-3">
+            <label class="form-label">Gambar Saat Ini</label><br>
+            <img src="{{ asset('storage/' . $portofolio->photo) }}"
+                 width="200"
+                 style="border-radius:8px; object-fit:cover;">
+        </div>
 
-            <tbody>
+        <!-- Upload Gambar Baru -->
+        <div class="mb-3">
+            <label class="form-label">Ganti Gambar (opsional)</label>
+            <input type="file" 
+                   name="photo" 
+                   class="form-control @error('photo') is-invalid @enderror">
+            @error('photo')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div>
 
-                @forelse ($beritas as $item)
-                <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>
-                    <img src="{{ asset('storage/' . $item->gambar) }}" 
-                    width="70" height="50" 
-                    style="object-fit: cover; border-radius: 4px;">
+        <div class="d-flex gap-2">
+            <button class="btn btn-primary btn-sm">
+                <i class="fa fa-save"></i> Update
+            </button>
 
-                    </td>
-
-                    <td>{{ $item->created_at->format('d M Y') }}</td>
-
-                    <td class="text-center">
-                        <a href="{{ route('admin.berita.edit', $item->id) }}" class="btn btn-warning btn-sm">
-                            <i class="fa fa-edit"></i>
-                        </a>
-
-                        <form action="{{ route('admin.berita.destroy', $item->id) }}" method="POST" 
-                              class="d-inline-block"
-                              onsubmit="return confirm('Yakin ingin menghapus berita ini?')">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-danger btn-sm">
-                                <i class="fa fa-trash"></i>
-                            </button>
-                        </form>
-                    </td>
-                </tr>
-
-                @empty
-                <tr>
-                    <td colspan="5" class="text-center text-muted">
-                        Belum ada Portofolio.
-                    </td>
-                </tr>
-                @endforelse
-
-            </tbody>
-        </table>
-    </div>
-
+            <a href="{{ route('admin.portofolio.index') }}" 
+               class="btn btn-secondary btn-sm">
+                Kembali
+            </a>
+        </div>
+    </form>
 </div>
 
 @endsection

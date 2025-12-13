@@ -48,11 +48,12 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <div class="header-social-links">
-          <a href="#" id="openSidebar">
-              <i class="bi bi-list" style="font-size: 28px; cursor:pointer;"></i>
-          </a>
-      </div>
+      <!-- Sidebar Trigger -->
+<div class="header-social-links">
+    <a href="#" id="openSidebar">
+        <i class="fa-solid fa-list" style="font-size: 28px; cursor:pointer;"></i>
+    </a>
+</div>
     <div id="sidebarAleena">
     <div class="sidebar-header">
         <h2>Aleéna</h2>
@@ -63,90 +64,95 @@
 
     <div class="sidebar-content">
         <h4>Kontak Kami</h4>
-
         <p><i class="bi bi-telephone"></i> 087753172270</p>
-
         <p><i class="bi bi-geo-alt"></i>
             Perumahan Bernardy Land Slawu  <br>
-            Cluster Alstonia Blok AC 157 ' <br>
+            Cluster Alstonia Blok AC 157 <br>
             Patrang, Slawe, Patrang, Kalipare <br>
             Jember, Jawa Timur 68118
         </p>
     </div>
 </div>
 
+
 <div id="sidebarOverlay"></div>
-<style>
-  /* SIDEBAR WRAPPER */
-#sidebarAleena {
-    position: fixed;
-    top: 0;
-    left: -320px; /* awal tersembunyi */
-    width: 300px;
-    height: 100vh;
-    background: #111;
-    color: #fff;
-    padding: 25px;
-    z-index: 9999;
-    transition: 0.3s ease;
-    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.5);
-}
+  <style>
+    /* ===================== SIDEBAR ===================== */
+    #sidebarAleena {
+      position: fixed;
+      top: 0;
+      left: -100%; /* tersembunyi default */
+      width: 300px;
+      height: 100vh;
+      background: #111;
+      color: #fff;
+      padding: 25px;
+      z-index: 9999;
+      transition: left 0.3s ease;
+      box-shadow: 2px 0 15px rgba(0, 0, 0, 0.5);
+      overflow-y: auto;
+    }
 
-/* HEADER SIDEBAR */
-.sidebar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+    .sidebar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-.sidebar-header h2 {
-    font-size: 1.8rem;
-    margin: 0;
-}
+    .sidebar-header h2 {
+      font-size: 1.8rem;
+      margin: 0;
+    }
 
-#closeSidebar {
-    font-size: 22px;
-    cursor: pointer;
-}
+    #closeSidebar {
+      font-size: 22px;
+      cursor: pointer;
+    }
 
-/* SUBTITLE */
-.sidebar-sub {
-    font-size: 0.9rem;
-    color: #00ff73;
-    margin: 5px 0 20px;
-}
+    .sidebar-sub {
+      font-size: 0.9rem;
+      color: #00ff73;
+      margin: 5px 0 20px;
+    }
 
-/* KONTEN */
-.sidebar-content h4 {
-    margin-bottom: 15px;
-    border-bottom: 2px solid #BFF747;
-    display: inline-block;
-    padding-bottom: 5px;
-}
+    .sidebar-content h4 {
+      margin-bottom: 15px;
+      border-bottom: 2px solid #BFF747;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
 
-.sidebar-content p {
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
+    .sidebar-content p {
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
 
-.sidebar-content i {
-    margin-right: 8px;
-    color: #00c3ff;
-}
+    .sidebar-content i {
+      margin-right: 8px;
+      color: #00c3ff;
+    }
 
-/* OVERLAY GELAP */
-#sidebarOverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.4);
-    display: none;
-    z-index: 9998;
-}
+    /* overlay */
+    #sidebarOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 9998;
+    }
 
-</style>
+    /* tombol sidebar */
+    .header-social-links i {
+      font-size: 28px;
+      cursor: pointer;
+      color: #00ff73;
+    }
+  </style>
 
     </div>
   </header>
@@ -479,70 +485,38 @@
         <div class="row g-4">
 
          @foreach ($teams as $item)
-<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-    <div class="team-member">
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="team-member">
 
-        {{-- Foto --}}
-        <div class="member-image">
-            <img src="{{ asset('storage/' . $item->photo) }}" 
-                 class="img-fluid" 
-                 alt="{{ $item->name }}" 
-                 loading="lazy"
-                 style="object-fit: cover; width:100%; height:300px;">
-        </div>
+                    {{-- Foto --}}
+                    <div class="member-image">
+                        <img src="{{ asset('storage/' . $item->photo) }}" 
+                            class="img-fluid" 
+                            alt="{{ $item->name }}" 
+                            loading="lazy"
+                            style="object-fit: cover; width:100%; height:300px;">
+                    </div>
 
-        {{-- Info --}}
-        <div class="member-info">
-            <h4>{{ $item->name }}</h4>
-            <span>{{ $item->position }}</span>
-            <p>{{ $item->info }}</p>
-        </div>
+                    {{-- Info --}}
+                    <div class="member-info">
+                        <h4>{{ $item->name }}</h4>
+                        <span>{{ $item->position }}</span>
+                        <p>{{ $item->info }}</p>
+                    </div>
 
-    </div>
-</div>
-@endforeach
+                </div>
+            </div>
+            @endforeach
 
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="team-member">
-              <div class="member-image">
-                <img src="assets/img/person/person-m-7.webp" class="img-fluid" alt="" loading="lazy">
-                <div class="social-overlay">
-                  <div class="social-icons">
-                    <a href="#"><i class="bi bi-linkedin"></i></a>
-                    <a href="#"><i class="bi bi-twitter-x"></i></a>
-                    <a href="#"><i class="bi bi-instagram"></i></a>
-                  </div>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Dian Febrianto, S.Kom</h4>
-                <span>UI/UX Designer</span>
-                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus.</p>
-              </div>
-            </div><!-- End Team Member -->
+           
           </div>
 
         
           
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="team-member">
-              <div class="member-image">
-                <img src="assets/img/person/person-f-11.webp" class="img-fluid" alt="" loading="lazy">
-                <div class="social-overlay">
-                  <div class="social-icons">
-                    <a href="#"><i class="bi bi-linkedin"></i></a>
-                    <a href="#"><i class="bi bi-twitter-x"></i></a>
-                    <a href="#"><i class="bi bi-instagram"></i></a>
-                  </div>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Imam Sahroni, M.Kom</h4>
-                <span>Mobile Developer</span>
-                <p>Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-              </div>
-            </div><!-- End Team Member -->
+            
           </div>
         </div>
 
@@ -723,19 +697,38 @@
             <div class="row">
                 
                 <div class="col-lg-5 col-md-12 mb-4">
-    <div class="row g-3 h-100">
-        
-        <div class="col-6">
-            <div class="side-by-side-card p-2">
-                <img src="assets/img/layanan1.jpg" class="img-fluid rounded" alt="Gambar 1">
-            </div>
-        </div>
+    
+    <style>
+.side-by-side-card {
+    width: 100%;
+    height: 260px; /* atur tinggi card */
+    overflow: hidden;
+    border-radius: 12px;
+    background: #000;
+}
 
-        <div class="col-6">
+.side-by-side-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;      /* bikin gambar penuh & proporsional */
+    object-position: center;
+    display: block;
+}
+</style>                <div class="row g-3 h-100">
+            
+         @foreach ($portofolios as $item)
+        <div class="col-6 mb-3">
             <div class="side-by-side-card p-2">
-                <img src="assets/img/layanan2.jpg" class="img-fluid rounded" alt="Gambar 2">
+                <img 
+                    src="{{ asset('storage/' . $item->photo) }}" 
+                    class="img-fluid rounded w-100"
+                    alt="{{ $item->judul }}"
+                >
             </div>
         </div>
+    @endforeach
+
+
 
     </div>
 </div>
@@ -764,12 +757,19 @@
                                     Kontak Kami <i class="fa-solid fa-arrow-up-right-from-square"></i>
                                 </div>
                                 
-                                <div class="partner-group">
-                                    <div class="partner-box">10+</div>
-                                    <div class="partner-box" style="background-color: #7abf40;">&nbsp;</div>
-                                    <div class="partner-box" style="background-color: #8ce450;">&nbsp;</div>
-                                    <span class="partner-text">10+ Mitra Kami</span>
+                               <div class="partner-group">
+                                <div class="partner-box">
+                                    <img src="assets/img/mitra/polri.svg" alt="">
                                 </div>
+                                <div class="partner-box">
+                                    <img src="assets/img/mitra/kejapri.svg" alt="Partner 2">
+                                </div>
+                                <div class="partner-box">
+                                    <img src="assets/img/mitra/dprd.svg" alt="Partner 3">
+                                </div>
+                                <span class="partner-text">10+ Mitra Kami</span>
+                            </div>
+
                             </div>
                             
                             <div class="achievement-box">
@@ -1291,26 +1291,35 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 <script>
-    const sidebar = document.getElementById("sidebarAleena");
-    const openBtn = document.getElementById("openSidebar");
-    const closeBtn = document.getElementById("closeSidebar");
-    const overlay = document.getElementById("sidebarOverlay");
+    const sidebar = document.getElementById('sidebarAleena');
+  const overlay = document.getElementById('sidebarOverlay');
+  const openBtn = document.getElementById('openSidebar');
+  const closeBtn = document.getElementById('closeSidebar');
 
-    openBtn.onclick = function(e) {
-        e.preventDefault();
-        sidebar.style.left = "0";
-        overlay.style.display = "block";
-    };
+  function openSidebar() {
+      sidebar.style.left = '0';
+      overlay.style.display = 'block';
+      setTimeout(() => overlay.style.opacity = '1', 10);
+  }
 
-    closeBtn.onclick = function() {
-        sidebar.style.left = "-320px";
-        overlay.style.display = "none";
-    };
+  function closeSidebar() {
+      sidebar.style.left = '-320px';
+      overlay.style.opacity = '0';
+      setTimeout(() => overlay.style.display = 'none', 300);
+  }
 
-    overlay.onclick = function() {
-        sidebar.style.left = "-320px";
-        overlay.style.display = "none";
-    };
+  openBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      openSidebar();
+  });
+
+  closeBtn.addEventListener('click', closeSidebar);
+  overlay.addEventListener('click', closeSidebar);
+
+  // Optional: tekan ESC untuk menutup sidebar
+  document.addEventListener('keydown', function(e) {
+      if(e.key === "Escape") closeSidebar();
+  });
 </script>
 
   

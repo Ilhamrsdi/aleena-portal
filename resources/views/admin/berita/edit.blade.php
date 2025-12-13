@@ -6,8 +6,7 @@
 
     <h4 class="mb-3">Edit Berita</h4>
 
-    <form action="{{ route('admin.berita.update', $berita->id) }}" 
-          method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.berita.update', $berita->id) }}" method="POST">
         @csrf
         @method('PUT')
 
